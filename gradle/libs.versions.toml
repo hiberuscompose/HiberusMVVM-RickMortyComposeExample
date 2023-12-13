@@ -306,6 +306,7 @@ testing-unit = [
     "io-mockk",
     "org-amshove-kluent-kluent-android",
     "org-jetbrains-kotlinx-kotlinx-coroutines-test",
+    "junit",
     "org-junit-jupiter-junit-jupiter",
     "org-junit-jupiter-junit-jupiter-api",
     "org-junit-jupiter-junit-jupiter-params",
