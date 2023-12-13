@@ -2,5 +2,7 @@
     <string name="app_name">Rick And Morty</string>
     <string name="launch_classic_screen">Lanzar Vista Clásica</string>
     <string name="launch_compose_screen">Lanzar Vista Compose</string>
+    <string name="launch_composable_testing">Composable Testing</string>
+    <string name="launch_paparazzi">Testing Paparazzi</string>
     <string name="title_activity_compose_ui">ComposeUiActivity</string>
 </resources>

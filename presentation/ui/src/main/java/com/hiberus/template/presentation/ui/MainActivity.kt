@@ -3,6 +3,7 @@ package com.hiberus.template.presentation.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -21,13 +22,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.hiberus.template.core.ui.compose.setUiContent
 import com.hiberus.template.core.ui.theme.AppTheme
-import dagger.hilt.android.AndroidEntryPoint
 import com.hiberus.template.presentation.R
 import com.hiberus.template.presentation.ui.classic.ClassicUiActivity
 import com.hiberus.template.presentation.ui.compose.ComposeUiActivity
+import com.hiberus.template.presentation.ui.composetesting.TestingComposeActivity
+import com.hiberus.template.presentation.ui.paparazzi.TestingPaparazziActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -73,30 +75,39 @@ fun HomeScreen() {
             modifier = Modifier.size(AppTheme.dimens.largeBottomSurface)
         )
 
-        Button(
-            onClick = {
-                context.startActivity(Intent(context, ClassicUiActivity::class.java))
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(AppTheme.dimens.buttonHeight),
+        ButtonContainer(text = R.string.launch_classic_screen) {
+            context.startActivity(Intent(context, ClassicUiActivity::class.java))
+        }
+
+        ButtonContainer(text = R.string.launch_compose_screen) {
+            context.startActivity(Intent(context, ComposeUiActivity::class.java))
+        }
+
+        ButtonContainer(text = R.string.launch_composable_testing) {
+            context.startActivity(Intent(context, TestingComposeActivity::class.java))
+        }
+
+        ButtonContainer(text = R.string.launch_paparazzi) {
+            context.startActivity(Intent(context, TestingPaparazziActivity::class.java))
+        }
+    }
+}
+
+@Composable
+private fun ButtonContainer(
+    @StringRes text: Int,
+    onClick: () -> Unit,
+) {
+    Spacer(
+        modifier = Modifier.size(AppTheme.dimens.appMargin)
+    )
+    Button(
+        onClick = onClick,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(AppTheme.dimens.buttonHeight),
 
         ) {
-            Text(text = stringResource(id = R.string.launch_classic_screen))
-        }
-        Spacer(
-            modifier = Modifier.size(AppTheme.dimens.appMargin)
-        )
-        Button(
-            onClick = {
-                context.startActivity(Intent(context, ComposeUiActivity::class.java))
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(AppTheme.dimens.buttonHeight),
-
-            ) {
-            Text(text = stringResource(id = R.string.launch_compose_screen))
-        }
+        Text(text = stringResource(id = text))
     }
 }

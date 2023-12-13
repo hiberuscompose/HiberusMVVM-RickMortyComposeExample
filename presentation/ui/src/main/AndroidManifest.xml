@@ -20,6 +20,12 @@
             android:name=".ui.classic.ClassicUiActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.composetesting.TestingComposeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.paparazzi.TestingPaparazziActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.HiberusTemplate">

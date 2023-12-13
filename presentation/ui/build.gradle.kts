@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.com.google.dagger.hilt.android)
     alias(libs.plugins.de.mannodermaus.android.junit5)
     alias(libs.plugins.io.gitlab.arturbosch.detekt)
+    alias(libs.plugins.app.cash.paparazzi)
     jacoco
 }
 
@@ -16,7 +17,6 @@ android {
     compileSdk = BuildVersion.environment.compileSdkVersion
 
     defaultConfig {
-        testInstrumentationRunnerArguments += mapOf()
         applicationId = BuildVersion.environment.applicationId
         minSdk = BuildVersion.environment.minSdkVersion
         targetSdk = BuildVersion.environment.compileSdkVersion
@@ -24,7 +24,6 @@ android {
         versionName = BuildVersion.environment.appVersionName
 
         testInstrumentationRunner = BuildVersion.testEnvironment.instrumentationRunner
-        testInstrumentationRunnerArguments["runnerBuilder"] = BuildVersion.testEnvironment.instrumentationRunnerArgs
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -66,16 +65,14 @@ android {
         }
     }
     testOptions {
-        animationsDisabled=true
-        reportDir = "$rootDir/instrumentedTestsResults/reports/$project.name"
-        resultsDir = "$rootDir/instrumentedTestsResults/results/$project.name"
-        unitTests{
-            isIncludeAndroidResources = true
-            isReturnDefaultValues = true
-            all { test ->
-                test.useJUnitPlatform()
-            }
+        animationsDisabled = true
+        unitTests.isReturnDefaultValues = true
+        unitTests.all {
+            it.useJUnitPlatform()
         }
+    }
+    tasks.withType<Test> {
+        jvmArgs("-XX:+AllowRedefinitionToAddDeleteMethods")
     }
 }
 
@@ -100,10 +97,17 @@ dependencies {
     ksp(libs.bundles.compilers.ksp.generic)
 
     // Testing implementation
+    testImplementation("junit:junit:4.13.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.10.0")
+    testImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
     testImplementation(libs.bundles.testing.unit)
-    testRuntimeOnly(libs.bundles.testing.unit.runtime)
-    androidTestImplementation(libs.bundles.testing.android)
-    androidTestRuntimeOnly(libs.bundles.testing.android.runtime)
-
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.5.4")
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
 
 }
