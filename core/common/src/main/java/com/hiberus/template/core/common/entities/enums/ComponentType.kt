@@ -8,6 +8,6 @@ enum class Component(
     Logo("hb_logo")
 }
 
-internal interface ComponentType {
+interface ComponentType {
     val thumbnail: String
 }

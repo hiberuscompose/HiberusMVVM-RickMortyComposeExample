@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.com.google.dagger.hilt.android)
     alias(libs.plugins.de.mannodermaus.android.junit5)
     alias(libs.plugins.io.gitlab.arturbosch.detekt)
+    alias(libs.plugins.app.cash.paparazzi)
     jacoco
 }
 

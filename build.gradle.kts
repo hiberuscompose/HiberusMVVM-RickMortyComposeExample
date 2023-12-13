@@ -14,6 +14,7 @@ plugins {
     alias(libs.plugins.com.github.ben.manes.versions)
     alias(libs.plugins.nl.littlerobots.version.catalog.update)
     alias(libs.plugins.io.gitlab.arturbosch.detekt)
+    alias(libs.plugins.app.cash.paparazzi) apply false
 }
 
 allprojects {
