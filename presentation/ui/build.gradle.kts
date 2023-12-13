@@ -67,16 +67,14 @@ android {
         }
     }
     testOptions {
-        animationsDisabled=true
-        reportDir = "$rootDir/instrumentedTestsResults/reports/$project.name"
-        resultsDir = "$rootDir/instrumentedTestsResults/results/$project.name"
-        unitTests{
-            isIncludeAndroidResources = true
-            isReturnDefaultValues = true
-            all { test ->
-                test.useJUnitPlatform()
-            }
+        animationsDisabled = true
+        unitTests.isReturnDefaultValues = true
+        unitTests.all {
+            it.useJUnitPlatform()
         }
+    }
+    tasks.withType<Test> {
+        jvmArgs("-XX:+AllowRedefinitionToAddDeleteMethods")
     }
 }
 
@@ -101,8 +99,8 @@ dependencies {
     ksp(libs.bundles.compilers.ksp.generic)
 
     // Testing implementation
-    testImplementation(libs.bundles.testing.unit)
-    testRuntimeOnly(libs.bundles.testing.unit.runtime)
+    testImplementation("junit:junit:4.13.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.10.0")
     androidTestImplementation(libs.bundles.testing.android)
     androidTestRuntimeOnly(libs.bundles.testing.android.runtime)
 

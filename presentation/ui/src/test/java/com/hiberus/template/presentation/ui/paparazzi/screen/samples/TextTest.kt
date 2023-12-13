@@ -1,4 +1,4 @@
-package com.hiberus.template.presentation.ui.screen.samples
+package com.hiberus.template.presentation.ui.paparazzi.screen.samples
 
 /**
  *   @author xavierjimenez

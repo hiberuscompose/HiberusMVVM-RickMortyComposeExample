@@ -5,7 +5,7 @@ import app.cash.paparazzi.Paparazzi
 import app.cash.paparazzi.detectEnvironment
 import com.android.ide.common.rendering.api.SessionParams.RenderingMode.SHRINK
 import com.hiberus.template.core.common.entities.enums.ComponentType
-import com.hiberus.template.presentation.ui.screen.samples.ButtonTest
+import com.hiberus.template.presentation.ui.paparazzi.screen.samples.ButtonTest
 import okio.IOException
 import org.junit.Rule
 import org.junit.Test
