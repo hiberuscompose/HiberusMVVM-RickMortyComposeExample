@@ -25,12 +25,6 @@ import com.hiberus.template.core.common.entities.HBComponent
 import com.hiberus.template.core.common.entities.hbComponents
 import com.hiberus.template.presentation.R
 
-/**
- *   @author xavierjimenez
- *   @since 13/12/23
- *   @email xavijimenezmulet@macaqueconsulting.com
- */
-
 @Composable
 internal fun StorybookView(
     paddingValues: PaddingValues,

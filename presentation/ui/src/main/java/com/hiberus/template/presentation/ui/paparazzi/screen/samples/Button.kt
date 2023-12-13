@@ -11,12 +11,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-/**
- *   @author xavierjimenez
- *   @since 13/12/23
- *   @email xavijimenezmulet@macaqueconsulting.com
- */
-
 @Preview
 @Composable
 fun ButtonTests() {

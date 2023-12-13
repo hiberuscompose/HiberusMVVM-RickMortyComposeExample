@@ -19,16 +19,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hiberus.template.presentation.ui.compose.ui.theme.Typography
 
-/**
- *   @author xavierjimenez
- *   @since 13/12/23
- *   @email xavijimenezmulet@macaqueconsulting.com
- */
-
 @Composable
 internal fun TestingView(
-    paddingValues: PaddingValues,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    paddingValues: PaddingValues = PaddingValues(),
 ) {
     var text by remember { mutableStateOf(EMPTY_STRING) }
 
