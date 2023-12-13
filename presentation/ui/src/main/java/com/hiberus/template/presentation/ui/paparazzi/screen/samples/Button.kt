@@ -26,21 +26,30 @@ fun ButtonTests() {
     ) {
         Button(
             onClick = { },
-            colors = ButtonDefaults.buttonColors(contentColor = Color.Red)
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color.Red,
+                contentColor = Color.White
+            )
         ) {
             Text(text = "Color Red")
         }
 
         Button(
             onClick = { },
-            colors = ButtonDefaults.buttonColors(contentColor = Color.Blue)
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color.Blue,
+                contentColor = Color.White
+            )
         ) {
             Text(text = "Color Blue")
         }
 
         Button(
             onClick = { },
-            colors = ButtonDefaults.buttonColors(contentColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color.Green,
+                contentColor = Color.White
+            )
         ) {
             Text(text = "Color Green")
         }
