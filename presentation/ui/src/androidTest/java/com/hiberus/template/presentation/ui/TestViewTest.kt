@@ -43,7 +43,7 @@ class TestingViewTest {
 
     @Test
     fun textWithTextNotContainsHelloWorld() {
-        composeTestRule.onNodeWithText(HELLO).assertDoesNotExist()
+        composeTestRule.onNodeWithText(HELLO_WORLD).assertDoesNotExist()
         Thread.sleep(1000)
     }
 
