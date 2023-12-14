@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -130,6 +131,9 @@ fun RickAndMortyCharacterItem(
     modifier: Modifier = Modifier,
     onClick: (RickAndMortyCharacter) -> Unit = {}
 ){
+    Box{
+
+    }
     Card(
         modifier = modifier,
         shape = RoundedCornerShape(12.dp),
@@ -197,9 +201,7 @@ fun RickAndMortyCharacterItem(
     Spacer(modifier = Modifier.height(4.dp))
 }
 
-@Preview(showBackground = true)
-@Preview(showSystemUi = true, device = Devices.NEXUS_5, uiMode = UI_MODE_NIGHT_YES)
-@Preview(showSystemUi = true, device = Devices.NEXUS_5)
+@MyPreviews
 @Composable
 fun PreviewItem(
     @PreviewParameter(CharacterPreviewParameter::class)
@@ -250,3 +252,11 @@ class CharacterPreviewParameter: PreviewParameterProvider<RickAndMortyCharacter>
         )
 
 }
+
+@Preview(showBackground = true, locale = "es")
+@Preview(showBackground = true, locale = "en")
+@Preview(showSystemUi = true, device = Devices.NEXUS_5, uiMode = UI_MODE_NIGHT_YES)
+@Preview(showSystemUi = true, device = Devices.NEXUS_5)
+@Preview(showSystemUi = true, device = Devices.TABLET, uiMode = UI_MODE_NIGHT_YES)
+@Preview(showSystemUi = true, device = Devices.TABLET)
+annotation class MyPreviews

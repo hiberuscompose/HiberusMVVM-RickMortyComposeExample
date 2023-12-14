@@ -41,11 +41,11 @@ fun ButtonTests() {
         Button(
             onClick = { },
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color.Green,
+                backgroundColor = Color.Magenta,
                 contentColor = Color.White
             )
         ) {
-            Text(text = "Color Green")
+            Text(text = "Color Magenta")
         }
     }
 }
