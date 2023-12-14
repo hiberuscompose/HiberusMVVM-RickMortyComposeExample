@@ -1,5 +1,7 @@
 package com.hiberus.template.presentation.ui.compose
 
+import android.content.res.Configuration.UI_MODE_NIGHT_MASK
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -29,6 +31,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
@@ -163,7 +166,7 @@ fun RickAndMortyCharacterItem(
             Text(
                 text = character.species,
                 modifier = Modifier.constrainAs(speciesView){
-                    top.linkTo(photoView.top)
+                    top.linkTo(nameView.bottom)
                     start.linkTo(photoView.end, 16.dp)
                     end.linkTo(parent.end)
                     width = Dimension.fillToConstraints
@@ -195,6 +198,8 @@ fun RickAndMortyCharacterItem(
 }
 
 @Preview(showBackground = true)
+@Preview(showSystemUi = true, device = Devices.NEXUS_5, uiMode = UI_MODE_NIGHT_YES)
+@Preview(showSystemUi = true, device = Devices.NEXUS_5)
 @Composable
 fun PreviewItem(
     @PreviewParameter(CharacterPreviewParameter::class)
@@ -221,6 +226,20 @@ class CharacterPreviewParameter: PreviewParameterProvider<RickAndMortyCharacter>
                 species = "species bla bla",
                 type = "type bla bla",
                 gender = "gender bla bla",
+                origin = UrlObject("miLocalizacion", "https"),
+                location = UrlObject("miLocalizacion", "https"),
+                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Sm6WtxxfkDF52q2jEViT_m_TdoaEqui3ODP6lZcrMVlARZSYDwl_7y_tMbC9sqOOb-s&usqp=CAU",
+                episode = listOf("episode bla bla"),
+                url = "url bla bla",
+                created = Calendar.getInstance().time,
+            ),
+            RickAndMortyCharacter(
+                id = 2,
+                name = "name 2 bla bla",
+                status = "status bla bla",
+                species = "species bla bla",
+                type = "type bla bla",
+                gender = "male",
                 origin = UrlObject("miLocalizacion", "https"),
                 location = UrlObject("miLocalizacion", "https"),
                 image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Sm6WtxxfkDF52q2jEViT_m_TdoaEqui3ODP6lZcrMVlARZSYDwl_7y_tMbC9sqOOb-s&usqp=CAU",
