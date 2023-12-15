@@ -20,18 +20,17 @@ class CharacterAdapter(
         CharacterHolder(ItemCharacterBinding.inflate(LayoutInflater.from(context), parent, false))
 
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
-        val rmCharacter = this.getItem(position)
-        if (rmCharacter != null){
+        this.getItem(position)?.let { item ->
             holder.binding.apply {
-                this.TxCharacterName.text = rmCharacter.name
-                this.IvCharacterPhoto.load(rmCharacter.image)
+                this.TxCharacterName.text = item.name
+                this.IvCharacterPhoto.load(item.image)
                 this.IvCharacterGender.setImageResource(
-                    if (rmCharacter.gender.lowercase() == "male")
+                    if (item.gender.lowercase() == "male")
                         R.drawable.ic_male
                     else
                         R.drawable.ic_female
                 )
-                this.TxCharacterSpecies.text = rmCharacter.species
+                this.TxCharacterSpecies.text = item.species
             }
         }
     }
